@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="back-button">
+            <button onclick="goToHomepage()">← Back to Homepage</button>
+        </div>
+        <h2>Volunteer Management</h2>
+        <button onclick="showSection('register')">Register Volunteer</button>
+        <!-- <button onclick="showSection('track')">Track Hours</button>
+        <button onclick="showSection('evaluate')">Evaluate Performance</button> -->
+        <button onclick="showSection('view')">View Volunteers</button>
+        <!-- <button onclick="showSection('search')">Search Volunteer</button> -->
+    </div>
+
+    <div class="content">
+        <!-- Register Volunteer Section -->
+        <div id="register" class="section" style="display:block;">
+            <h2>Register Volunteer</h2>
+            <form id="registerForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="skills">Skills:</label>
+                <input type="text" id="skills" name="skills" required>
+
+                <label for="task">Task:</label>
+                <select id="task" name="task" required>
+                    <option value="Event Setup">Event Setup</option>
+                    <option value="Community Outreach">Community Outreach</option>
+                    <option value="Fundraising Support">Fundraising Support</option>
+                    <option value="Administrative Support">Administrative Support</option>
+                    <option value="Customer Service">Customer Service</option>
+                </select>
+
+                <label for="shift">Shift:</label>N
+                <select id="shift" name="shift" required>
+                    <option value="9:00 AM - 12:00 PM">9:00 AM - 12:00 PM</option>
+                    <option value="12:00 PM - 3:00 PM">12:00 PM - 3:00 PM</option>
+                    <option value="3:00 PM - 6:00 PM">3:00 PM - 6:00 PM</option>
+                </select>
+                <div class="form-group">
+                    <label for="User_Type">User_Type</label>
+                    <input type="text" id="User_Type" name="User_Type" value="Olg Age" placeholder="Resource Managemnet" required readonly>
+                </div>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+
+        <!-- Track Hours Section -->
+        
+        <!-- <div id="track" class="section" style="display:none;">
+            <h2>Track Hours</h2>
+            <form id="trackForm">
+                <label for="volunteerIdTrack">Volunteer ID:</label>
+                <input type="number" id="volunteerIdTrack" name="volunteerIdTrack" required>
+
+                <label for="dateTrack">Date:</label>
+                <input type="date" id="dateTrack" name="dateTrack" required>
+
+                <label for="startTime">Start Time:</label>
+                <input type="time" id="startTime" name="startTime" required>
+
+                <label for="endTime">End Time:</label>
+                <input type="time" id="endTime" name="endTime" required>
+
+                <button type="submit">Log Hours</button>
+            </form>
+        </div> -->
+
+        <!-- Evaluate Performance Section -->
+        <!-- <div id="evaluate" class="section" style="display:none;">
+            <h2>Evaluate Performance</h2>
+            <form id="evaluateForm">
+                <label for="volunteerIdEvaluate">Volunteer ID:</label>
+                <input type="number" id="volunteerIdEvaluate" name="volunteerIdEvaluate" required>
+
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" required></textarea>
+
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>Register Volunteer
+                </select>
+
+                <button type="submit">Submit Evaluation</button>
+            </form>
+        </div> -->
+
+        <!-- View Volunteers Section -->
+        <div id="view" class="section" style="display:none;">
+            <h2>View Volunteers</h2>
+            <table id="volunteersTable1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Skills</th>
+                        <th>Task</th>
+                        <th>Shift</th>
+                        <th>User Type</th>
+<!-- // smjha kya..haa smjhaa abhii///kya krna h aur -->
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Search Volunteer Section -->
+        <div id="search" class="section" style="display:none;">
+            <h2>Search Volunteer</h2>
+            <form id="searchForm">
+                <label for="searchId">Search by ID:</label>
+                <input type="text" id="searchId" name="searchId">
+                <label for="searchName">Search by Name:</label>
+                <input type="text" id="searchName" name="searchName">
+                <button type="submit">Search</button>
+            </form>
+            <div id="searchResults">
+                <table id="searchResultsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Skills</th>
+                            <th>Task</th>
+                            <th>Shift</th>
+                            <th>Total Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Search results will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <!-- Add this line in your HTML file to load jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="script.js"></script>
+    <script>
+        function goToHomepage() {
+    window.location.href = '../../index.html';
+}
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.display = 'none'; // Hide all sections
+            });
+            document.getElementById(sectionId).style.display = 'block'; // Show selected section
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+// DOM Elements
+const form = document.getElementById('resident-form');
+const tableBody = document.querySelector('#resident-table tbody');
+
+// Event Listeners
+form.addEventListener('submit', handleFormSubmit);
+
+// Functions
+function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    // Extract form data
+    const name = document.getElementById('name').value;
+    const dob = document.getElementById('dob').value;
+    const address = document.getElementById('address').value;
+    const roomNumber = document.getElementById('room-number').value;
+    const healthStatus = document.getElementById('health-status').value;
+    const emergencyContact = document.getElementById('emergency-contact').value;
+
+    // Add data to the table
+    addResidentToTable({ name, dob, address, roomNumber, healthStatus, emergencyContact });
+
+    // Clear the form
+    form.reset();
+}
+
+function addResidentToTable(resident) {
+    const row = document.createElement('tr');
+    
+    row.innerHTML = `
+        <td>${resident.name}</td>
+        <td>${resident.dob}</td>
+        <td>${resident.address}</td>
+        <td>${resident.roomNumber}</td>
+        <td>${resident.healthStatus}</td>
+        <td>${resident.emergencyContact}</td>
+        <td>
+            <button onclick="editResident(this)">Edit</button>
+            <button onclick="deleteResident(this)">Delete</button>
+        </td>
+    `;
+    
+    tableBody.appendChild(row);
+}
+
+function editResident(button) {
+    const row = button.closest('tr');
+    const cells = row.querySelectorAll('td');
+
+    document.getElementById('name').value = cells[0].textContent;
+    document.getElementById('dob').value = cells[1].textContent;
+    document.getElementById('address').value = cells[2].textContent;
+    document.getElementById('room-number').value = cells[3].textContent;
+    document.getElementById('health-status').value = cells[4].textContent;
+    document.getElementById('emergency-contact').value = cells[5].textContent;
+
+    tableBody.removeChild(row);
+}
+
+function deleteResident(button) {
+    const row = button.closest('tr');
+    tableBody.removeChild(row);
+}
+document.getElementById('resident-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const table = document.getElementById('resident-info-table').getElementsByTagName('tbody')[0];
+  const row = table.insertRow();
+
+  const name = document.getElementById('name').value;
+  const dob = document.getElementById('dob').value;
+  const address = document.getElementById('address').value;
+  const roomNumber = document.getElementById('room-number').value;
+  const healthStatus = document.getElementById('health-status').value;
+  const emergencyContact = document.getElementById('emergency-contact').value;
+  const chronicDisease = document.getElementById('chronic-disease').value;
+  const allergies = document.getElementById('allergies').value;
+  const medication = document.getElementById('medication').value;
+  const disabilities = document.getElementById('disabilities').value;
+
+  row.innerHTML = `
+      <td>${name}</td>
+      <td>${dob}</td>
+      <td>${address}</td>
+      <td>${roomNumber}</td>
+      <td>${healthStatus}</td>
+      <td>${emergencyContact}</td>
+      <td>${chronicDisease}</td>
+      <td>${allergies}</td>
+      <td>${medication}</td>
+      <td>${disabilities}</td>
+      <td><button class="edit-btn">Edit</button> <button class="delete-btn">Delete</button></td>
+  `;
+
+  this.reset();
+});
+
+document.getElementById('resident-info-table').addEventListener('click', function(event) {
+  if (event.target.classList.contains('delete-btn')) {
+      event.target.closest('tr').remove();
+  }
+
+  // Edit button functionality can be added here if needed.
+});
+// Get the modals, buttons, and close elements
+const residentModal = document.getElementById('resident-modal');
+const editModal = document.getElementById('edit-modal');
+const viewBtn = document.getElementById('view-resident-btn');
+const closeBtns = document.querySelectorAll('.close-btn');
+const editButtons = document.querySelectorAll('.edit-btn');
+
+// When the user clicks the View Resident button, open the resident information modal
+viewBtn.onclick = function() {
+    residentModal.style.display = 'block';
+}
+
+// When the user clicks on <span> (x), close the modal
+closeBtns.forEach(btn => {
+    btn.onclick = function() {
+        residentModal.style.display = 'none';
+        editModal.style.display = 'none';
+    }
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == residentModal) {
+        residentModal.style.display = 'none';
+    } else if (event.target == editModal) {
+        editModal.style.display = 'none';
+    }
+}
+
+// When the user clicks the Edit button, open the edit modal and load the data
+editButtons.forEach(button => {
+    button.onclick = function() {
+        const row = button.parentElement.parentElement;
+        const cells = row.getElementsByTagName('td');
+
+        // Load data from the table row into the form
+        document.getElementById('name').value = cells[0].innerText;
+        document.getElementById('dob').value = cells[1].innerText;
+        document.getElementById('address').value = cells[2].innerText;
+        document.getElementById('room-number').value = cells[3].innerText;
+        document.getElementById('health-status').value = cells[4].innerText;
+        document.getElementById('emergency-contact').value = cells[5].innerText;
+        document.getElementById('chronic-disease').value = cells[6].innerText;
+        document.getElementById('allergies').value = cells[7].innerText;
+        document.getElementById('medication').value = cells[8].innerText;
+        document.getElementById('disabilities').value = cells[9].innerText;
+
+        // Open the edit modal
+        editModal.style.display = 'block';
+    }
+});
+
+// When the user submits the edit form, save the changes
+document.getElementById('edit-resident-form').onsubmit = function(event) {
+    event.preventDefault(); // Prevent form from submitting the traditional way
+
+    // Get the updated values from the form
+    const updatedName = document.getElementById('name').value;
+    const updatedDob = document.getElementById('dob').value;
+    const updatedAddress = document.getElementById('address').value;
+    const updatedRoomNumber = document.getElementById('room-number').value;
+    const updatedHealthStatus = document.getElementById('health-status').value;
+    const updatedEmergencyContact = document.getElementById('emergency-contact').value;
+    const updatedChronicDisease = document.getElementById('chronic-disease').value;
+    const updatedAllergies = document.getElementById('allergies').value;
+    const updatedMedication = document.getElementById('medication').value;
+    const updatedDisabilities = document.getElementById('disabilities').value;
+
+    // Find the row being edited
+    const row = Array.from(editButtons).find(button => button.onclick).parentElement.parentElement;
+    const cells = row.getElementsByTagName('td');
+
+    // Update the row with the new values
+    cells[0].innerText = updatedName;
+    cells[1].innerText = updatedDob;
+    cells[2].innerText = updatedAddress;
+    cells[3].innerText = updatedRoomNumber;
+    cells[4].innerText = updatedHealthStatus;
+    cells[5].innerText = updatedEmergencyContact;
+    cells[6].innerText = updatedChronicDisease;
+    cells[7].innerText = updatedAllergies;
+    cells[8].innerText = updatedMedication;
+    cells[9].innerText = updatedDisabilities;
+
+    // Close the edit modal
+    editModal.style.display = 'none';
+}
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("profileForm");
+    const popup = document.getElementById("popup");
+    const popupMessage = document.getElementById("popupMessage");
+    const closePopup = document.getElementById("closePopup");
+    const editButton = document.getElementById("editButton");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        popupMessage.textContent = "Profile saved successfully!";
+        popup.style.display = "block";
+        form.querySelectorAll("input, textarea").forEach((element) => element.setAttribute("disabled", true));
+        editButton.style.display = "block";
+    });
+
+    editButton.addEventListener("click", function() {
+        form.querySelectorAll("input, textarea").forEach((element) => element.removeAttribute("disabled"));
+        popupMessage.textContent = "Profile editing enabled!";
+        popup.style.display = "block";
+    });
+
+    closePopup.addEventListener("click", function() {
+        popup.style.display = "none";
+    });
+});

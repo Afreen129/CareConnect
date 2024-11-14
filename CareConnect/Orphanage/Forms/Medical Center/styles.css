@@ -1,0 +1,263 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    background-color: #f4f4f4; /* Light background for better contrast */
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background-color: #a8bba0; /* Elegant dark grayish-blue */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    height: 100vh; /* Full height */
+    position: fixed; /* Sidebar is fixed */
+  }
+  
+  .sidebar h2 {
+    font-size: 1.6em;
+    color: #fdfdfd; /* Light text color */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #a9a148; /* Soft complementary color */
+    padding-bottom: 10px;
+  }
+  
+  .sidebar button {
+    display: block;
+    margin: 10px 0;
+    padding: 12px 15px;
+    background-color: #c7724e; /* Muted mauve */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    width: 100%; /* Full width */
+    text-align: left; /* Align text to the left */
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar button:hover {
+    background-color: #d98e6f; /* Lighter mauve on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+  }
+  
+  /* Content */
+  .content {
+    flex: 1;
+    padding: 30px;
+    margin-left: 270px; /* Offset content by sidebar width */
+    background-color: #f8f4ec; /* Light content background */
+    min-height: 100vh; /* Full height */
+    transition: margin-left 0.3s ease;
+  }
+  
+  /* Section Styles */
+  .section {
+    margin-bottom: 40px;
+    background-color: #ffffff; /* Light background for sections */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for sections */
+  }
+  
+  .section h2 {
+    color: #c7724e; /* Darker, sophisticated text for section titles */
+    margin-bottom: 15px;
+  }
+  
+  /* Form Styles */
+  input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow on input fields */
+    font-size: 1em; /* Consistent font size */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus */
+  }
+  
+  textarea {
+    min-height: 120px; /* Minimum height for text areas */
+  }
+  
+  /* Button Styles */
+  button {
+    background-color: #ffbe5c; /* Light Orange */
+    color: #031505; /* Dark text */
+    border: none;
+    padding: 12px 25px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #f7a832; /* Darker on hover */
+  }
+  
+  /* Back Button Styles */
+  .back-button {
+    margin-bottom: 20px;
+  }
+  
+  .back-button button {
+    background-color: #ffbe5c; /* Light Orange */
+    color: #090b0f; /* Dark text */
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full width */
+  }
+  
+  .back-button button:hover {
+    background-color: #f7a832; /* Darker on hover */
+  }
+  
+  /* Search Results Section */
+  #searchResults {
+    padding: 20px;
+    background-color: #ffffff; /* White background */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 25px; /* Space above */
+  }
+  
+  /* List Styles */
+  #reportCardsList, #activitiesList, #medicationsList, #dailyAppointments, #dailyMedications {
+    padding: 15px;
+    background-color: #ffffff; /* White background */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 25px; /* Space above */
+  }
+  
+  /* Specific Styles for Medical Records Section */
+  #recordDetails h3 {
+    color: #c7724e; /* Matching section h2 color */
+    margin-top: 20px;
+  }
+  
+  #recordDetails p, #recordDetails ul {
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+  }
+
+
+
+/* Responsive styles for 1024px */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 180px;
+  }
+
+  .content {
+    margin-left: 200px;
+    padding: 15px;
+  }
+
+  .section {
+    padding: 12px;
+  }
+
+  input, textarea, select {
+    font-size: 0.85em;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 0.85em;
+  }
+
+  #searchResults, #reportCardsList, #activitiesList, #medicationsList, #dailyAppointments, #dailyMedications {
+    padding: 10px;
+    margin-top: 15px;
+  }
+}
+  /* Responsive styles for 768px and below */
+@media (max-width: 768px) {
+    body {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: static;
+      padding: 15px;
+    }
+  
+    .content {
+      margin-left: 0;
+      padding: 20px;
+    }
+  
+    .sidebar button {
+      padding: 10px;
+    }
+  
+    .section {
+      padding: 15px;
+    }
+  
+    input, textarea, select {
+      font-size: 0.9em;
+    }
+  
+    #searchResults, #reportCardsList, #activitiesList, #medicationsList, #dailyAppointments, #dailyMedications {
+      padding: 15px;
+      margin-top: 20px;
+    }
+  }
+  
+  /* Responsive styles for 480px and below */
+  @media (max-width: 480px) {
+    .sidebar h2 {
+      font-size: 1.4em;
+    }
+  
+    .content {
+      padding: 15px;
+    }
+  
+    .section {
+      padding: 10px;
+    }
+  
+    input, textarea, select {
+      font-size: 0.8em;
+      padding: 10px;
+    }
+  
+    button {
+      padding: 10px 20px;
+      font-size: 0.9em;
+    }
+  
+    #searchResults, #reportCardsList, #activitiesList, #medicationsList, #dailyAppointments, #dailyMedications {
+      padding: 10px;
+      margin-top: 15px;
+    }
+  
+    #recordDetails h3 {
+      font-size: 1.2em;
+    }
+  
+    #recordDetails p, #recordDetails ul {
+      padding: 8px;
+      font-size: 0.9em;
+    }
+  }

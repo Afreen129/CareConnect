@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Education and Activities</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="back-button">
+            <button onclick="goToHomepage()">← Back to Homepage</button>
+        </div>
+        <h2>Manage Education</h2>
+        <button onclick="toggleSection('progressReport')">Progress Report</button>
+        <button onclick="toggleSection('educationDetails')">Education Details</button>
+        <button onclick="toggleSection('previousReportCards')">Previous Report Cards</button>
+        <button onclick="toggleSection('addActivity')">Add Activity</button>
+        <button onclick="toggleSection('viewAllActivities')">View All Activities</button>
+    </div>
+
+    <div class="content">
+        <!-- Progress Report Section -->
+        <!-- <div class="section" id="progressReport" style="display:block;">
+            <h2>Progress Report</h2>
+            <form onsubmit="saveProgressReport(event)">
+                <input type="text" id="progressChildIdOrName" placeholder="Child ID or Name" required>
+                <input type="text" id="progressGrade" placeholder="Current Grade" required>
+                <textarea id="progressComments" placeholder="Comments" required></textarea>
+                <input type="file" id="progressReportCard" required>
+                <button type="submit">Save</button>
+            </form>
+        </div> -->
+        <div class="section" id="progressReport" style="display:block;">
+            <h2>Progress Report</h2>
+            <form id="progressReportForm">
+                <input type="text" id="progressChildIdOrName" name="childIdOrName" placeholder="Child ID or Name" required>
+                <input type="text" id="progressGrade" name="currentGrade" placeholder="Current Grade" required>
+                <textarea id="progressComments" name="comments" placeholder="Comments" required></textarea>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+        
+
+
+
+        <!-- Education Details Section -->
+        <div class="section" id="educationDetails" style="display:none;">
+            <h2>Education Details</h2>
+            <input type="text" id="searchChild" placeholder="Search by Child ID or Name" oninput="searchChild()" required>
+            <div id="childDetails"></div>
+            <input type="text" id="upgradeGrade" placeholder="Upgrade Grade" disabled required>
+            <textarea id="updateComments" placeholder="Update Comments" disabled required></textarea>
+            <input type="file" id="newReportCards" disabled required>
+            <button id="saveChangesButton" disabled onclick="saveEducationDetails()">Save Changes</button>
+        </div>
+
+        <!-- Previous Report Cards Section -->
+        <div class="section" id="previousReportCards" style="display:none;">
+            <!-- <h2>Previous Report Cards</h2>
+            <form onsubmit="searchPreviousReportCards(event)">
+                <input type="text" id="searchPreviousReportCards" placeholder="Search by Child ID or Name" required>
+                <button type="submit">Search</button>
+            </form>
+            <div id="reportCardsList"></div> -->
+
+               
+                    <h2>User Data Table</h2>
+                    <table id="progressReportTable">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Child ID/Name</th>
+                                <th>Current Grade</th>
+                                <th>Comments</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="progressReportTableBody">
+                            <!-- Dynamic rows will be inserted here -->
+                        </tbody>
+                    </table>
+                    
+                    <!-- <div class="pagination">
+                        <button class="prev">Previous</button>
+                        <span>Showing record: 1 to 10 from 200 item(s)</span>
+                        <button class="next">Next</button>
+                    </div> -->
+            
+            
+        </div>
+
+        <!-- Add New Activity Section -->
+        <div class="section" id="addActivity" style="display:none;">
+            <h2>Add New Activity</h2>
+            <form onsubmit="addActivity(event)">
+                <input type="text" id="activityName" placeholder="Activity Name" required>
+                <textarea id="activityDescription" placeholder="Description" required></textarea>
+                <input type="date" id="activityDate" required>
+                <input type="time" id="activityTime" required>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+
+        <!-- View All Activities Section -->
+        <div class="section" id="viewAllActivities" style="display:none;">
+            <h2>View All Activities</h2>
+            <form onsubmit="searchActivities(event)">
+                <input type="text" id="searchActivities" placeholder="Search by Activity Name or Date" required>
+                <button type="submit">Search</button>
+            </form>
+            <!-- <div id="activitiesList"></div> -->
+            <div id="activitiesList">
+                <table id="activitiesTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

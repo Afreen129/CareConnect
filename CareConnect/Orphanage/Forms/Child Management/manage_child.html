@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Child</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="back-button">
+            <button onclick="goToHomepage()">← Back to Homepage</button>
+        </div>
+        <h2>Manage Child</h2>
+        <button onclick="toggleSection('addChild')">Add Child</button>
+        <button onclick="toggleSection('searchChild')">Search Child</button>
+    </div>
+
+    <div class="content">
+        <!-- Add Child Section -->
+        <div class="section" id="addChild" style="display:block;">
+            <h2>Add New Child</h2>
+            <form id="addChildForm">
+                <label for="childID">ID Number:</label>
+                
+                <input type="text" id="childID" placeholder="Auto-generated" required readonly>
+                <label for="childName">Name:</label>
+                <input type="text" id="childName" placeholder="Enter child's name" required>
+                
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" placeholder="Select date of birth" required>
+                
+                <label for="admissionDate">Admission Date:</label>
+                <input type="date" id="admissionDate" placeholder="Select admission date" required>
+                
+                <label for="gender">Gender:</label>
+                <select id="gender" required>
+                    <option value="">Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <!-- <label for="photo">Photograph:</label>
+                <input type="file" id="photo" accept="image/*"> -->
+
+                <label for="reasonAdmission">Reason for Admission:</label>
+                <textarea id="reasonAdmission" placeholder="Enter reason for admission" required></textarea>
+
+                <label for="height">Height (cm):</label>
+                <input type="number" id="height" placeholder="Enter height in cm" step="0.1" min="0">
+
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" placeholder="Enter weight in kg" step="0.1" min="0">
+
+                <label for="socialProgress">Social Progress Notes:</label>
+                <textarea id="socialProgress" placeholder="Enter social development notes"></textarea>
+
+                <button type="submit">Save Child</button>
+            </form>
+        </div>
+
+        <!-- Search Child Section -->
+        <div class="section" id="searchChild" style="display:none;">
+            <h2>Search Child</h2>
+            <input type="text" id="searchChildQuery" placeholder="Search by Name or ID Number">
+            <button onclick="searchChild()">Search</button>
+
+            <div id="searchResults">
+                <!-- Search results will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

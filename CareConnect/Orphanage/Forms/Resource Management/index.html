@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="back-button">
+            <button onclick="goToHomepage()">← Back to Homepage</button>
+        </div>
+        <h2>Resource Management</h2>
+        <button onclick="toggleSection('addResources')">Add Resources</button>
+        <button onclick="toggleSection('viewResources')">View Resources</button>
+    </div>
+
+    <div class="content">
+        <!-- Add Resources Section -->
+        <div class="section" id="addResources" style="display:block;">
+            <h2>Add Resources</h2>
+            <form id="resource-form">
+                <div class="form-group">
+                    <label for="resource-type">Resource Type</label>
+                    <select id="resource-type" name="resource-type" required>
+                        <option value="">Select Resource Type</option>
+                        <option value="food">Food</option>
+                        <option value="medication">Medication</option>
+                        <option value="supplies">Supplies</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="resource-name">Resource Name</label>
+                    <input type="text" id="resource-name" name="resource-name" placeholder="Enter resource name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" min="1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="units">Units</label>
+                    <select id="units" name="units" required>
+                        <option value="">Select Units</option>
+                        <option value="kg">Kilograms</option>
+                        <option value="g">Grams</option>
+                        <option value="liters">Liters</option>
+                        <option value="units">Units</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="resource-name">Resource Name</label>
+                    <input type="text" id="User_Type" name="User_Type" value="Orphange" placeholder="Resource Managemnet" required readonly>
+                </div>
+                
+                <!-- <button type="submit">Save</button> -->
+                <button type="submit">Save</button>
+            </form>
+        </div>
+
+        <!-- View Resources Section -->
+        <div class="section" id="viewResources" style="display:none;">
+    <form id="search-form">
+            <h2>View Resources</h2>
+            <input type="text" id="searchResourceName" placeholder="Search by Resource Name">
+            <button type="submit">Search</button>
+        </form>
+            <table id="resourcesTable">
+                <thead>
+                    <tr>
+                        <th>Resource Name</th>
+                        <th>Resource Type</th>
+                        <th>Quantity</th>
+                        <th>Units</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

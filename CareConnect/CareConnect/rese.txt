@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resident Information Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Resident Information Form</h1>
+    </header>
+
+    <main>
+        <section id="form-section">
+            <form id="resident-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+        
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+        
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+        
+                <label for="room-number">Room Number:</label>
+                <input type="number" id="room-number" name="room-number" required>
+        
+                <label for="health-status">Health Status:</label>
+                <select id="health-status" name="health-status">
+                    <option value="good">Good</option>
+                    <option value="fair">Fair</option>
+                    <option value="poor">Poor</option>
+                </select>
+        
+                <label for="emergency-contact">Emergency Contact:</label>
+                <input type="text" id="emergency-contact" name="emergency-contact" required>
+        
+                <label for="chronic-disease">Chronic Disease:</label>
+                <input type="text" id="chronic-disease" name="chronic-disease" placeholder="Enter chronic disease">
+        
+                <label for="allergies">Allergies:</label>
+                <input type="text" id="allergies" name="allergies" placeholder="Enter allergies">
+        
+                <label for="medication">Current Medication:</label>
+                <input type="text" id="medication" name="medication" placeholder="Enter current medication">
+        
+                <label for="disabilities">Disabilities:</label>
+                <input type="text" id="disabilities" name="disabilities" placeholder="Enter disabilities">
+        
+                <button type="submit">Save Information</button>
+            </form>
+        
+            <button id="view-resident-btn">View Resident</button>
+        
+    
+        
+            <!-- Modal for displaying resident information -->
+            <div id="resident-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h3>Resident Information Table</h3>
+                    <table id="resident-info-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date of Birth</th>
+                                <th>Address</th>
+                                <th>Room Number</th>
+                                <th>Health Status</th>
+                                <th>Emergency Contact</th>
+                                <th>Chronic Disease</th>
+                                <th>Allergies</th>
+                                <th>Medication</th>
+                                <th>Disabilities</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Table content will go here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        
+            <!-- Modal for editing resident information -->
+            <div id="edit-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h3>Edit Resident Information</h3>
+                    <form id="edit-resident-form">
+                        <label for="edit-name">Name:</label>
+                        <input type="text" id="edit-name" name="name" required><br>
+        
+                        <label for="edit-dob">Date of Birth:</label>
+                        <input type="date" id="edit-dob" name="dob" required><br>
+        
+                        <label for="edit-address">Address:</label>
+                        <input type="text" id="edit-address" name="address" required><br>
+        
+                        <label for="edit-room-number">Room Number:</label>
+                        <input type="text" id="edit-room-number" name="room-number" required><br>
+        
+                        <label for="edit-health-status">Health Status:</label>
+                        <input type="text" id="edit-health-status" name="health-status" required><br>
+        
+                        <label for="edit-emergency-contact">Emergency Contact:</label>
+                        <input type="text" id="edit-emergency-contact" name="emergency-contact" required><br>
+        
+                        <label for="edit-chronic-disease">Chronic Disease:</label>
+                        <input type="text" id="edit-chronic-disease" name="chronic-disease"><br>
+        
+                        <label for="edit-allergies">Allergies:</label>
+                        <input type="text" id="edit-allergies" name="allergies"><br>
+        
+                        <label for="edit-medication">Medication:</label>
+                        <input type="text" id="edit-medication" name="medication"><br>
+        
+                        <label for="edit-disabilities">Disabilities:</label>
+                        <input type="text" id="edit-disabilities" name="disabilities"><br>
+        
+                        <button type="submit">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+<div id="popup" class="popup">
+        <p id="popupMessage"></p>
+        <button id="closePopup">Close</button>
+    </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

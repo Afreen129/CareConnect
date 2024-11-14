@@ -1,0 +1,310 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    background-color: #e7ebef; /* Consistent light background */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #5b99ad; /* Dark sidebar */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(24, 16, 90, 0.1);
+    height: 100vh;
+    position: fixed;
+}
+
+.sidebar h2 {
+    font-size: 1.6em;
+    color: #fdfdfd; /* Light text for contrast */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #927c5a;
+    padding-bottom: 10px;
+}
+
+.sidebar button {
+    display: block;
+    margin: 10px 0;
+    padding: 12px 15px;
+    background-color: #e0bc7e; /* Light blue background for right section */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Rounded corners for buttons */
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+    background-color:  #e8cea1; /* Hover effect */
+}
+
+/* Content Section */
+.content {
+    flex: 1;
+    padding: 30px;
+    margin-left: 270px;
+    background-color: #F5F5DD;
+    min-height: 100vh;
+    transition: margin-left 0.3s ease;
+}
+
+.section {
+    margin-bottom: 40px;
+    background-color: #ffffff; /* Light background for sections */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Similar shadow effect */
+}
+
+.section h2 {
+    color: #e0bc7e; /* Heading color */
+    margin-bottom: 15px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Rounded corners for inputs */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1em;
+}
+
+textarea {
+    min-height: 120px;
+}
+
+/* Buttons */
+button {
+    background-color: #ffbe5c; /* Consistent button color */
+    color: #031505;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color:  #f7a832; /* Hover effect */
+}
+
+/* Back Button */
+.back-button {
+    margin-bottom: 20px;
+}
+
+.back-button button {
+    background-color: #ffbe5c;
+    color: #090b0f;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.back-button button:hover {
+    background-color: #f7a832; /* Hover effect */
+}
+.container {
+    margin-top: 20px;
+    background-color:#fafafa;
+}
+
+.invitation {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px dashed #ffbe5c; /* Decorative border */
+    background-color: #f9f9f9; /* Light background */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.decorative {
+    text-align: center;
+    font-size: 1.5em;
+    color: #ffbe5c;
+}
+
+h1 {
+    text-align: center;
+    color: #869fdc; /* Heading color */
+}
+
+.date, .time, #generatedAddress, #generatedPhone ,#generatedDescription,#savedAddress,#savedPhone,#savedDescription{
+    text-align: center;
+    font-size: 1.2em;
+}
+
+@media screen and (max-width: 1024px) {
+    body {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        padding: 10px;
+    }
+    
+    .sidebar h2 {
+        font-size: 1.4em;
+    }
+    
+    .sidebar button {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .content {
+        margin-left: 0;
+        padding: 20px;
+    }
+    
+    .section {
+        padding: 15px;
+    }
+    
+    .section h2 {
+        font-size: 1.3em;
+    }
+    
+    input, textarea, select, button {
+        font-size: 0.9em;
+    }
+    
+    .invitation {
+        padding: 15px;
+    }
+    
+    .decorative {
+        font-size: 1.3em;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    .date, .time, #generatedAddress, #generatedPhone, #generatedDescription,
+    #savedAddress, #savedPhone, #savedDescription {
+        font-size: 1.1em;
+    }
+}
+/* Responsive styles */
+
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        padding: 10px;
+    }
+
+    .sidebar h2 {
+        font-size: 1.4em;
+    }
+
+    .sidebar button {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .section {
+        padding: 15px;
+    }
+
+    .section h2 {
+        font-size: 1.3em;
+    }
+
+    input, textarea, select, button {
+        font-size: 0.9em;
+    }
+
+    .invitation {
+        padding: 15px;
+    }
+
+    .decorative {
+        font-size: 1.3em;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .date, .time, #generatedAddress, #generatedPhone, #generatedDescription,
+    #savedAddress, #savedPhone, #savedDescription {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .sidebar h2 {
+        font-size: 1.2em;
+    }
+
+    .sidebar button {
+        padding: 8px;
+        font-size: 0.8em;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .section {
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .section h2 {
+        font-size: 1.1em;
+    }
+
+    input, textarea, select, button {
+        padding: 10px;
+        font-size: 0.8em;
+    }
+
+    .invitation {
+        padding: 10px;
+    }
+
+    .decorative {
+        font-size: 1.1em;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .date, .time, #generatedAddress, #generatedPhone, #generatedDescription,
+    #savedAddress, #savedPhone, #savedDescription {
+        font-size: 1em;
+    }
+
+    .back-button button {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+}
