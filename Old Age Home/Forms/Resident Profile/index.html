@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Resident</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="back-button">
+            <button onclick="goToHomepage()">← Back to Homepage</button>
+        </div>
+        <h2>Manage Resident</h2>
+        <button onclick="toggleSection('addResident')">Add Resident</button>
+        <button onclick="toggleSection('searchResident')">Search Resident</button>
+    </div>
+
+    <div class="content">
+        <!-- Add Resident Section -->
+        <div class="section" id="addResident" style="display:block;">
+            <h2 style="text-align: center;"> Add New Resident</h2>
+            <form id="addResidentForm">
+                
+                <label for="residentName">Name:</label>
+                <input type="text" id="residentName" placeholder="Enter resident's name" required>
+                
+                <label for="photo">Photograph:</label>
+                <input type="file" id="photo" accept="image/*">
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" placeholder="Select date of birth" required>
+                
+                <label for="phone">Contact Number:</label>
+                <input type="tel" id="phone" placeholder="Enter contact number" required>
+
+                <label for="admissionDate">Admission Date:</label>
+                <input type="date" id="admissionDate" placeholder="Select admission date" required>
+                
+                <label for="gender">Gender:</label>
+                <select id="gender" required>
+                    <option value="">Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="reasonAdmission">Reason for Admission:</label>
+                <textarea id="reasonAdmission" placeholder="Enter reason for admission" required></textarea>
+
+                <label for="medicalConditions">Medical Conditions:</label>
+                <textarea id="medicalConditions" placeholder="Enter any medical conditions"></textarea>
+
+                <label for="emergencyContact">Emergency Contact Name:</label>
+                <input type="text" id="emergencyContact" placeholder="Enter emergency contact name" required>
+
+                <label for="emergencyPhone">Emergency Contact Phone:</label>
+                <input type="tel" id="emergencyPhone" placeholder="Enter emergency contact phone" required>
+
+                <label for="allergies">Allergies:</label>
+                <input type="text" id="allergies" placeholder="List any allergies">
+
+                <label for="bloodType">Blood Type:</label>
+                <input type="text" id="bloodType" placeholder="Enter blood type">
+
+                <label for="height">Height (cm):</label>
+                <input type="number" id="height" placeholder="Enter height in cm" step="0.1" min="0">
+
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" placeholder="Enter weight in kg" step="0.1" min="0">
+
+                <button type="submit" >Save Resident</button>
+            </form>
+        </div>
+
+        <!-- Search Resident Section -->
+        <!-- <form id="search-form">
+            <label for="searchResidentName">Search Resident Name:</label>
+            <input type="text" id="searchResidentName" name="searchResidentName" required>
+            <button type="submit">Search</button>
+        </form> -->
+        
+            <form id="search-form">
+                <h2 style="text-align: center;">Search Resident</h2>
+                <input type="text" id="searchResidentName" placeholder="Search by Resident Name">
+                <button type="submit">Search</button>
+            </form>
+            <table id="resourcesTable">
+                <thead>
+                    <tr>
+                        <th>ID:</th>
+                        <th>Name</th>
+                        <th>Date of Birth</th>
+                        <th>Emergency Contact</th>
+                        <th>Emergency Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be dynamically added here -->
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

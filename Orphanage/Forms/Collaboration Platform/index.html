@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaboration Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="back-button">
+            <button onclick="goToHomepage()">← Back to Homepage</button>
+        </div>
+        <h2>Collaboration Platform</h2>
+        <button onclick="toggleSection('createEvent')">Create Event</button>
+        <button onclick="toggleSection('sendInvitations')">Send Invitations</button>
+    </div>
+
+    <div class="content">
+        <!-- Create Event Section -->
+        <div class="section" id="createEvent" style="display:block;">
+            <h2>Create Event</h2>
+            <div class="container">
+                <!-- Form for entering event details -->
+                <form id="inviteForm">
+                    <div class="form-group">
+                        <label for="eventTitle">Event Title:</label>
+                        <input type="text" id="eventTitle" name="eventTitle" placeholder="Enter event title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDate">Event Date:</label>
+                        <input type="date" id="eventDate" name="eventDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventTime">Event Time:</label>
+                        <div style="display: flex; align-items: center;">
+                            <input type="time" id="eventTime" name="eventTime" required>
+                            <select id="timeAMPM" name="timeAMPM" required style="margin-left: 10px; padding: 8px;">
+                                <option value="AM">AM</option>
+                                <option value="PM">PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Event Description:</label>
+                        <textarea id="description" name="description" rows="4" placeholder="Enter a description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter contact number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Event Address:</label>
+                        <input type="text" id="address" name="address" placeholder="Enter event address" required>
+                    </div>
+                    <button type="button" class="btn" onclick="generateInvite()">Create Invite</button>
+                </form>
+            </div>
+
+            <!-- Invitation template -->
+            <div class="invitation" id="generatedInvite" style="display:none;">
+                <div class="decorative">✿✿✿</div>
+                <h1 id="generatedTitle"></h1>
+                <p id="generatedDescription"></p>
+                <div class="decorative">✿✿✿</div>
+                <p class="date" id="generatedDate"></p>
+                <p class="time" id="generatedTime"></p>
+                <p id="generatedAddress"></p>
+                <p id="generatedPhone"></p>
+            </div>
+
+            <!-- Edit, Delete, Submit Buttons -->
+            <div class="button-group" style="display: none;" id="actionButtons">
+                <button type="button" class="btn" onclick="editInvite()">Edit</button>
+                <button type="button" class="btn" onclick="deleteInvite()">Delete</button>
+                <button type="button" class="btn" onclick="submitInvite()">Submit</button>
+            </div>
+        </div>
+
+        <!-- Send Invitations Section -->
+        <div class="section" id="sendInvitations" style="display:none;">
+            <h2>Send Invitations</h2>
+            <div id="saved-event-details" style="display:none;">
+                
+                <div class="invitation">
+                    <div class="decorative">✿✿✿</div>
+                    <h1 id="savedTitle"></h1>
+                    <p id="savedDescription"></p>
+                    <div class="decorative">✿✿✿</div>
+                    <p class="date" id="savedDate"></p>
+                    <p class="time" id="savedTime"></p>
+                    <p id="savedAddress"></p>
+                    <p id="savedPhone"></p>
+                </div>
+            </div>
+            <label for="recipient-emails">Enter Emails (comma separated):</label>
+            <textarea id="recipient-emails" required></textarea>
+            <button id="send-invites">Send Invitations</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

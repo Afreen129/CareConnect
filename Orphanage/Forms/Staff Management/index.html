@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Staff Management</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="back-button">
+            <button onclick="goToHomepage()">← Back to Homepage</button>
+        </div>
+        <div class="sidebar-header">
+            <h2>Staff Management</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-item active" id="add-staff-menu">
+                <a href="#add-staff-section" id="id_1">Add Staff</a>
+            </li>
+            <li class="menu-item" id="view-staff-menu">
+                <a href="#view-staff-section" id="id_2">View Staff</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="section" id="add-staff-section" style="display:block;">
+            <h2>Add Staff</h2>
+            <form id="add-staff-form">
+                <!-- <label for="staff-id">Staff ID:</label>
+                <input type="text" id="staff-id" name="staffId" required /> -->
+                
+                <label for="staff-name">Name:</label>
+                <input type="text" id="staff-name" name="name" required />
+                
+                <label for="staff-role">Role:</label>
+                <select id="staff-role" name="role" required>
+                    <option value="caregiver">Caregiver</option>
+                    <option value="helper">Helper</option>
+                </select>
+                
+                <label for="staff-email">Email ID:</label>
+                <input type="email" id="staff-email" name="email" required />
+                
+                <label for="staff-phone">Phone Number:</label>
+                <input type="tel" id="staff-phone" name="phone" required />
+                
+                <label for="staff-date-joining">Date of Joining:</label>
+                <input type="date" id="staff-date-joining" name="dateOfJoining" required />
+                <div class="form-group">
+                    <label for="User_Type">User_Type</label>
+                    <input type="text" id="User_Type" name="User_Type" value="Orphanage" placeholder="Staff Managemnet" required readonly>
+                </div>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+
+        <div class="section" id="view-staff-section" style="display:none;">
+            <h2>View Staff</h2>
+            <table id="view-staff-table">
+                <thead>
+                    <tr>
+                        <!-- <th>Staff ID</th> -->
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Email ID</th>
+                        <th>Phone Number</th>
+                        <th>Date of Joining</th>
+                        <th>User Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Staff records will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
